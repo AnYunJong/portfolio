@@ -1,0 +1,309 @@
+@charset "UTF-8";
+/* 공통적으로 적용되는 스타일 */
+/*
+10/24_이서현
+240번째줄  main부분 길이,여백 조정
+*/
+@import url('https://fonts.googleapis.com/css2?family=Nanum+Pen+Script&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Nanum+Gothic&display=swap');
+*{
+	font-family: 'Nanum Gothic', sans-serif;
+}
+body{
+	 background-color: rgb(231, 231, 231);    
+
+}
+hr{
+    border: 1px dotted #99CEB5;
+    opacity:40%;
+}
+ul {
+	list-style: none;
+	padding-inline-start:0px;
+	margin-right: 1px;
+
+}
+.logo{ /*프젝 로고*/
+	opacity: 40%;
+	position:absolute;
+	right:50px;
+	bottom:50px;
+	width: 30%; 
+}
+.login{
+    width:50px; /*로그인 버튼크기 수정*/
+    margin-left:11px;
+}
+/*login hover 코드 삭제*/
+
+input[type=button], input[type=submit], input[type=reset]{ /*버튼들 전체*/
+	background-color:#F59B7A;
+	border: 1px solid ivory;
+	color:white;
+	padding-right:5px;
+	cursor:pointer;
+	left:240.5px;
+	bottom:57.5px;
+	right:40.5px;
+	margin-top:7px;
+}
+input[type=button]:hover{ /*버튼들 hover*/
+	background-color:#99CEB5;
+	border: 1px solid ivory;
+	    
+	color:white;
+	padding-right:5px;
+	cursor:pointer;
+	left:240.5px;
+	bottom:53.5px;
+	right:40.5px;
+	margin-top:7px;
+}
+.box {
+	background-color: ivory;
+    width:900px;
+    height: 500px;
+    padding:20px;
+    padding-top:0px;
+    margin:10px;
+    border: 1px dashed #F59B7A;
+    background-color:ivory;
+}
+.container > li { /*메뉴글자*/
+    /* border:1px solid yellow; */
+    list-style:none;
+    font-size: 15px;
+}
+a { /*메뉴글자 링크*/
+    text-decoration:none;
+    color:white;
+}
+.container{ /*메뉴바*/
+    border-radius: 9px;
+    background-color:#99CEB5;
+    margin-left: -1px;
+    margin-right:5px;
+    display:flex;
+    height:20px;
+    justify-content: space-between;
+    padding:12px 15px;
+    position:static;
+    border:2px solid #ffe4db;   
+}
+.container>li:hover{ /*메뉴글자 hover*/
+    background-color: #F59B7A;
+    color: white;
+    border-radius: 4px;
+}
+.box2 {
+	border-radius: 9px;
+		border-radius: 9px;
+	background-color: white;
+	opacity:80%;
+	border:1px dotted #99CEB5;
+	position:absolute;
+	width: 670px;
+	height:378px;
+	top: 130px;
+	left:240px;
+	bottom:5px; 
+	right:40.5px;
+	/* display:flex; */
+	padding:12px;
+	overflow:auto;
+}
+.box3 {
+	border-radius: 9px;
+	background-color: white;
+	opacity:80%;
+	border:1px dotted #99CEB5;
+	position:absolute;
+	width: 765px;
+	height:300px;
+	top: 130px;
+	left:42px;
+	margin-top:1px; 
+	right:40.5px;
+	display:flex;
+	padding:12px;
+	overflow: auto;
+}
+#image{ /*프로필에 있는 로고이미지.임의로 지정*/
+    width:159px;
+    height:30%;
+    top: 116.5px;
+	left:240.5px;
+	bottom:53.5px;
+	right:40.5px;
+	display:flex;
+	padding:12px;
+	padding-left:5px;
+	background-color: white;
+	border:1px solid #caf1df;
+}
+input[type=text]{
+	margin-bottom: 10px;
+	margin-top: 9px;
+	width:170px;
+	border:1px solid rgb(233, 233, 233);
+	color:#f1845c;
+}
+.title {
+	background-color:#F59B7A;
+	color:white;
+}
+.matelist {
+	float: left;
+	margin: 2px;
+	width: 320px;
+	height: 370px;
+	overflow: auto;
+	border: 1px solid #f5b49c;
+	border-radius: 5px;
+	background-color: white;
+}
+.accept {
+	background-color:#F59B7A;
+	border: 1px solid ivory;
+	color:white;
+	padding-right:5px;
+	cursor:pointer;
+	left:240.5px;
+	bottom:53.5px;
+	right:40.5px;
+	margin-top:7px;
+}
+#list {
+	display:flex;
+	flex-direction: row;
+	list-style: none;
+	margin: 0px;
+}
+.listview {
+	display: flex;
+	margin: 5px;
+	font-size:15px;
+}
+.listview > li {
+	padding: 5px;
+	align-self: center;
+	text-align: center;
+}
+.gallery {
+	text-align: center;
+	width: 500px;
+	height: 600px;
+	border: 1px solid #f5b49c;
+	border-radius: 5px;
+	background-color: white;
+}
+.guestbook {
+	text-align: center;
+	margin: 30px;
+	width: 950px;
+	height: 650px;
+	border: 1px solid #f5b49c;
+	border-radius: 5px;
+	background-color: white;
+}
+.pagenum {
+    border: 1px solid #f5b49c;
+    padding: 3px 5px;
+    text-decoration: none;  /*  밑줄제거  */
+    cursor: pointer;
+    display: inline-block;
+    text-align:center;
+    font-size: 9pt;
+    border-radius: 2px;
+}
+.pagenum:hover{
+     background-color: #f5b49c;
+     color: purple;
+} 
+.current {
+	background-color: #f5b49c;
+	color: white;
+}
+.comment {
+	margin: 0px;
+}
+table {
+	margin-left: 5px;
+	margin-top: 10px;
+}
+td {
+	margin-left: 20px;
+}
+textarea {
+	border: 1px solid #f5b49c;
+	border-radius: 3px;
+}
+h3 {
+	margin: 10px;
+}
+h5 {
+	margin: 5px;
+}
+#main {
+	display:flex;
+	flex-direction:column;
+	list-style: none;
+	background-color:white;
+	margin-bottom:70px;
+	margin-top:10px;
+	width:80%;
+	font-size:15px;	
+}
+
+.row , .row-2{
+	display: flex;
+}
+.row > li{
+	padding: 3px 0px;
+	align-self: center;
+	padding : 5px;
+	margin: 2px;
+	text-align: center;
+		width:100%;
+}
+.row > li:nth-child(1){
+	/* flex-basis:20%; */
+	background-color: #f5b49c;
+	color: black;
+	width:30%;
+	border-radius: 3px;
+	font-size: 17px;
+}	
+.row > li:nth-child(2){
+	/* flex-basis:35%; */
+	color: #1A237E;
+	font-size: 15px;
+	width:50%;
+}
+.row > li:nth-child(3){
+	/* flex-basis:20%; */
+	background-color: #bdb9b7;
+	color: black;
+	border-radius: 3px;
+	font-size: 0.8em;
+}
+.row > li:nth-child(4){
+	/* flex-basis:25%; */
+	color:#1A237E;
+}
+
+.welcome{
+
+font-size:25px;
+font-family: 'Nanum Pen Script', cursive;
+}
+.username{
+font-family: 'Nanum Pen Script', cursive;
+color:tomato;
+}
+.gohome {
+	color: black;
+}
+.gohome:hover {
+	color: tomato;
+}

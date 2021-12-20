@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!-- sql mapper   -->  
+<mapper namespace="guguBoard">
+	
+	<select id="getguguboard" parameterType="java.util.Map" resultType="GuguBoard">
+		select * from guguBoard where u_idx =#{u_idx} order by idx desc limit #{startNo},#{pageSize}
+	</select>
+	
+	<select id="getOne" parameterType="int" resultType="GuguBoard">
+		select * from guguBoard where idx =#{idx}
+	</select>
+	
+	<insert id="boardinput" parameterType="GuguBoard">
+		insert into guguboard(u_idx,subject,content,heart,commentCount) values(#{u_idx},#{subject},#{content},0,0)
+	</insert>
+	
+	<delete id="delete" parameterType="int">	<!-- 삭제  -->
+		delete from guguboard where idx =#{idx}
+	</delete>
+	
+	<update id="update" parameterType="GuguBoard">	<!-- 수정  -->
+		update guguboard set subject=#{subject}, content=#{content}, wdate=current_timestamp()
+		where idx=#{idx}
+	</update>
+	
+		<!--아래로 10월 21일  목요일 -->
+	<!--boardComment 테이블 관련 sql  -->
+	<insert id="CommentInsert" parameterType="BoardComment"> 
+		insert into boardComment(u_idx,board_idx,name,content) 
+			values(#{u_idx},#{board_idx},#{name},#{content});
+	</insert> 
+	
+	<select id="getComments" resultType="BoardComment" parameterType="int">
+		select * from boardComment where board_idx = #{board_idx};
+	</select>
+	
+	<delete id="CommentDelete" parameterType="BoardComment">
+		delete from boardComment where idx = #{idx} and u_idx=#{u_idx};
+	</delete>
+	
+	<!-- 좋아요 10-23 윤종 -->
+	<update id="heart" parameterType="int">
+		update guguboard set heart = heart + 1 where idx =#{idx};
+	</update>
+	
+	<!-- 페이지 10-25 윤종 -->
+	<select id="getCount" resultType="int" parameterType="int" >
+		select count(*) from guguboard where u_idx=#{u_idx};
+	</select>
+	
+</mapper>

@@ -1,0 +1,139 @@
+@charset "UTF-8";
+
+/* 무료로 사용할 수 있는 폰트 중에 깔끔하고 정갈한 거 찾아서 폰트 적용 예정 */
+@media screen and (max-width:768px) {   
+	#banner {
+		display: none;
+   }
+	#banner2 {
+		display: block;
+	}
+	.info {
+		display: none;
+	}
+	.info2 {
+		display: block;
+	}
+}
+
+@media screen and (min-width:768px) {   /* 768px 이하 일 때 작은 배너 보여주기 */
+	#banner {
+		display: block;
+   }
+	#banner2 {
+		display: none;
+	}
+	.info {
+		display: block;
+	}
+	.info2 {
+		display: none;
+	}
+}
+body {
+	height: 100%;
+	margin: 0px;
+	padding: 0px;
+	background-color: #FFFBE6;
+}
+a {
+	text-decoration: none;
+	cursor: pointer;
+	color: black;
+}
+.menu {
+	padding: 0;
+	float: left;
+	display: flex;
+	flex-direction: row;
+	margin-left: 20px;
+}
+.logo {
+	margin-top: 10px;
+	margin-left: 10px;
+}
+.navlist {
+	overflow: hidden;
+	list-style: none;
+	display: block;
+	/* margin-block-start: 1em;
+    margin-block-end: 1em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px; */
+    /* padding-inline-start: 40px; */
+    padding-top: 10px;
+    padding-left: 20px;
+}
+.logbutton {
+	display: flex;
+	flex-direction: row-reverse;
+}
+.button :hover {
+	background: black;
+	color: white;
+}
+.loginout {
+	min-width: 120px;
+    height: 40px;
+    padding: 0 23px;
+    border-radius: 20px;
+    border: 1px solid #e0e0e0;
+    font-size: 13px;
+    color: #000;
+    line-height: 38px;
+    box-sizing: border-box;
+    text-align: center;
+    background-color: #fff;
+    
+	display: inline-block;
+	margin-top: 10px;
+	margin-right: 10px;
+}
+.image {
+	width: 100%;
+	height: 500px;
+}
+#banner {	/* 배너이미지 최소 세로 500px인 이미지 */
+	width: 100%;
+	height: 500px;
+}
+#banner2 {
+	width: 100%;
+	height: 500px;
+}
+.gugu {
+	color: #EE7450;
+	font-size: 40px;
+}
+.info {
+	margin-top: 100px;
+	margin-bottom: 100px;
+	margin-left: 450px;
+	font-size: 25px;
+	padding: 100px;
+}
+.info2 {
+	margin-top: 100px;
+	margin-bottom: 100px;
+	margin-left: 50px;
+	font-size: 25px;
+}
+#homepage {
+	margin-top: 20px;
+	margin-left: 100px;
+	width: 600px;
+	height: 420px;
+	border: 1px solid #f5b49c;
+}
+#homepage2 {
+	margin-top: 20px;
+	width: 500px;
+	height: 420px;
+	border: 1px solid #f5b49c;
+}
+.image>img{
+	width:1908px;
+	height:502px;
+
+	
+}

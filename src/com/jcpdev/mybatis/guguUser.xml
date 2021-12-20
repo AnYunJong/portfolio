@@ -1,0 +1,73 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!-- sql mapper   -->  
+<mapper namespace="guguUser"> <!-- namespace : 일종의 식별역할의 변수 -->
+     
+	<!--회원 가입 할때 not null 컬럼만 insert  나머지 컬럼은 일단 null  10월25일 리턴값 추가-->  
+	<insert id="insert" parameterType="GuguUser" useGeneratedKeys="true"
+				keyColumn="idx" keyProperty="idx">
+		insert into guguUser(name,email,password,birth,gender,phone_number) 
+		values(#{name},#{email},#{password},#{birth},#{gender},#{phone_number})
+	</insert>
+	
+	<!--로그인 할때 정보가 맞는지 체크  -->
+	<select id="loginCheck" parameterType="java.util.Map" resultType="SessionDto">
+		select * from guguUser where email = #{email}
+		and password = #{password}
+	</select>
+	
+	<!--비밀번호 찾을때  -->
+	<select id="lookForPW" parameterType="java.util.Map" resultType="String">
+		select password from guguUser
+		 where name = #{name} and email = #{email} and phone_number = #{phone_number}
+	</select>
+	
+	<!--email(아이디) 찾을때  -->
+	<select id="lookForEmail" parameterType="java.util.Map" resultType="String">
+		select email from guguUser
+		 where name = #{name} and phone_number = #{phone_number}
+	</select>
+	
+	<!-- 한명의 회원 정보 select  -->
+	<select id="selectByIdx" resultType="TotalProfile" parameterType="int">
+		select idx,name,email,birth,round((TO_DAYS(NOW()) - to_days(birth))/365) age,
+		IF(gender = 'M','남자','여자'),gender,hobby,school,job,mbti,introduce,filename 
+		from guguuser WHERE idx = #{idx}
+	</select>
+	
+	<!-- 회원가입할때 필수 컬럼 이외의 다른 컬럼 업데이트  -->
+	<update id="update" parameterType="GuguUser"> 
+		update guguUser set hobby = #{hobby}, school=#{school}, job=#{job}, 
+		mbti=#{mbti},introduce=#{introduce},filename=#{filename} where idx = #{idx}
+	</update>
+	
+	<select id="getname" resultType="string" parameterType="int">
+		select name from guguuser where idx=#{idx}
+	</select>
+	
+	<!--=================아래로 승준 10월25일  수정 ===================================  -->
+	<update id="short_introUpdate" parameterType="GuguUser">
+		update guguuser set short_intro =#{short_intro} where idx=#{idx};	
+	</update>
+	
+	<update id="titleUpdate" parameterType="GuguUser">
+		update guguuser set title=#{title} where idx=#{idx};	
+	</update>
+	
+	<select id="selectIntro" resultType="string" parameterType="int">
+		select short_intro from guguuser WHERE idx = #{idx};
+	</select>
+	
+	<select id="selectTitle" resultType="string" parameterType="int">
+		select title from guguuser WHERE idx = #{idx};
+	</select>
+</mapper>
+<!-- ${ } : 표현식. 중괄호안에 수식에 대한 연산결과값을 구해서 출력
+     #{ } : 무조건 문자열(' '기호사용)로 중괄호 안의 값을 처리합니다. -->
+
+
+
+
+

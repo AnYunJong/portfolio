@@ -1,0 +1,46 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!-- sql mapper  -->
+<mapper namespace="guestbook"> <!-- namespace : 일종의 식별역할의 변수 -->
+	
+	<!-- 사용자 방명록 목록보기-->
+	<select id="getlist" resultType="Guestbook" parameterType="int">
+		select * from guestbook where u_idx=#{u_idx} order by idx desc;
+	</select>
+	
+	<insert id="insert" parameterType="Guestbook">
+		insert into guestbook (u_idx,v_idx,content,name) values(#{v_idx},#{u_idx},#{content},#{name})
+	</insert>
+	
+	<delete id="delete" parameterType="int">
+		delete from guestbook where idx=#{idx}
+	</delete>
+	
+	<!--아래로 10월 21일  목요일 -->
+	<!--gbookcomment 테이블 관련 sql  -->
+	<insert id="CommentInsert" parameterType="GbookComment"> 
+		insert into gbookComment(u_idx,book_idx,name,content) 
+			values(#{u_idx},#{book_idx},#{name},#{content});
+	</insert> 
+	
+	<select id="getComments" resultType="GbookComment" parameterType="int">
+		select * from gbookComment where book_idx= #{book_idx};
+	</select>
+	
+	<delete id="CommentDelete" parameterType="GbookComment">
+		delete from gbookComment where idx = #{idx} and u_idx=#{u_idx};
+	</delete>
+	
+</mapper>
+<!-- ${ } : 표현식. 중관호안에 수식에 대한 결과값을 구해서 출력 
+	 #{ } : 무조건 문자열(' '기호사용)로 중괄호 안의 값을 처리합니다.-->
+
+
+
+
+
+
+
+

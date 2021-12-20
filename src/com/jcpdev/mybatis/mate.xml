@@ -1,0 +1,70 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!-- sql mapper  -->
+<mapper namespace="mate"> <!-- namespace : 일종의 식별역할의 변수 -->
+	<select id="getlist" resultType="int" parameterType="int">
+		select count(*) from mate where u_idx =#{idx} and state ='H'
+	</select>
+	
+	 <!-- 본인 친구리스트 목록 -->
+	<select id="matelist" parameterType="int" resultType="Mate">
+		select * from mate where u_idx =#{idx} and state ='H'
+	</select>
+	<!-- 내가 친구 추가 -->
+ 	<select id="metoyou" parameterType="int" resultType="GuguUser">
+		select g.idx, g.name from guguuser as g 
+		left join (select * from mate where mate.u_idx =#{idx} and state ='O') m 
+		on g.idx =m.v_idx where g.idx!=#{idx} and m.v_idx is not null
+	</select>
+	<!-- 상대방이 친구 추가 -->
+	<select id="youtome" parameterType="int" resultType="GuguUser">
+		select g.idx, g.name from guguuser as g 
+		left join (select * from mate where mate.u_idx =#{idx} and state ='X') m 
+		on g.idx =m.v_idx where g.idx!=#{idx} and m.v_idx is not null
+	</select>
+	<!-- 추천 친구 목록 -->
+	<select id="random_mate" parameterType="int" resultType="GuguUser">
+		select g.idx, g.name from guguuser as g 
+		left join (select * from mate where mate.u_idx =#{idx}) m 
+		on g.idx =m.v_idx where g.idx!=#{idx} and m.v_idx is null
+	</select>
+	
+	<!-- 새로운 친구등록 -->
+	<update id="myfriend" parameterType="Mate">
+		update mate set state='H', nickName=#{nickName} where u_idx =#{u_idx} and v_idx =#{v_idx}
+	</update>
+	<update id="yourfriend" parameterType="Mate">
+		update mate set state='H' where u_idx =#{v_idx} and v_idx =#{u_idx}
+		
+	</update>
+	
+	<!-- 내가 친구 신청하기 -->
+	<insert id="request_friend" parameterType="Mate">
+		insert into mate values(#{u_idx},#{v_idx},'O',#{nickName});
+	</insert>
+	<insert id="waiting_friend" parameterType="Mate">
+		insert into mate values(#{v_idx},#{u_idx},'X','대기');
+	</insert>
+	
+	<!-- 친구삭제 -->
+	<delete id="mydelete" parameterType="java.util.Map">
+		delete from mate where u_idx =#{u_idx} and v_idx =#{v_idx}
+	</delete>
+	<delete id="yourdelete" parameterType="java.util.Map">
+		delete from mate where u_idx =#{v_idx} and v_idx =#{u_idx}
+	</delete>
+	
+
+</mapper>
+<!-- ${ } : 표현식. 중관호안에 수식에 대한 결과값을 구해서 출력 
+	 #{ } : 무조건 문자열(' '기호사용)로 중괄호 안의 값을 처리합니다.-->
+
+
+
+
+
+
+
+

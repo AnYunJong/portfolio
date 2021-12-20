@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="gallery">
+	<!--guguGallery 테이블 관련 sql  -->
+	<select id="getAll" resultType="GuguGallery" parameterType="int">
+		select * from guguGallery where u_idx = #{u_idx} order by idx desc;
+	</select>  
+	
+	<select id="getOne" resultType="GuguGallery" parameterType="int">
+		select * from guguGallery where idx = #{idx};
+	</select> 
+	<!-- 10월 26일 카테고리 추가 -->
+	<insert id="insert" parameterType="GuguGallery"> 
+		insert into guguGallery(u_idx,title,filename,gcontent,heart,category) 
+			values(#{u_idx},#{title},#{filename},#{gcontent},#{heart},#{category});
+	</insert> 
+	
+	<update id="update" parameterType="GuguGallery"> 
+		update guguGallery set title=#{title},gcontent = #{gcontent},category=#{category},gdate=current_timestamp() where idx = #{idx};
+	</update> 
+	
+	<!--아래로 10월 20일  수요일 -->
+	<delete id="delete" parameterType="int">
+		delete from gugugallery where idx = #{idx};
+	</delete>
+	
+	<!--galleryComment 테이블 관련 sql  -->
+	<insert id="CommentInsert" parameterType="GalleryComment"> 
+		insert into galleryComment(u_idx,gallery_idx,name,content) 
+			values(#{u_idx},#{gallery_idx},#{name},#{content});
+	</insert> 
+	
+	<select id="getComments" resultType="GalleryComment" parameterType="int">
+		select * from gallerycomment where gallery_idx= #{gallery_idx};
+	</select>
+	
+	<delete id="CommentDelete" parameterType="GalleryComment">
+		delete from gallerycomment where idx = #{idx} and u_idx=#{u_idx};
+	</delete>
+	
+	<!-- 좋아요 10-23 윤종 -->
+	<update id="heart" parameterType="int">
+		UPDATE guguGallery SET heart = heart + 1 WHERE idx =#{idx}
+	</update>
+	
+	<!-- 카테고리 10월 25일 13시 -->
+	<select id="category" parameterType="int" resultType="string">
+		select category from gugucategory where u_idx=#{u_idx}
+	</select>
+	
+	<select id="categorylist" resultType="GuguGallery" parameterType="GalleryCategory">
+		select * from guguGallery g where u_idx=#{u_idx} and category=#{category}
+	</select> 
+	
+	<insert id="setting" parameterType="int">
+		insert into gugucategory values(#{u_idx},'갤러리')
+	</insert>
+	
+	<insert id="categoryadd" parameterType="GalleryCategory">
+		insert into gugucategory values(#{u_idx},#{category})
+	</insert>
+	
+</mapper>

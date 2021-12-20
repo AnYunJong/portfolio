@@ -1,0 +1,408 @@
+@charset "UTF-8";
+@import url('https://fonts.googleapis.com/css2?family=Nanum+Gothic&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Nanum+Pen+Script&display=swap');
+
+/*
+10/26_이서현_381~402 드롭다운 css 추가
+*/
+
+*{
+	font-family: 'Nanum Gothic', sans-serif;
+}
+body{
+	background-color: rgb(231, 231, 231);
+}
+.logo{ /*프젝 로고*/
+	opacity: 40%;
+	position:absolute;
+	right:50px;
+	bottom:50px;
+	width: 30%; 
+}
+.box{
+	background-color: ivory;
+	width:900px;
+	height: 500px;
+	padding:20px;
+	padding-top:0px;
+	margin:10px;
+	border: 1px dashed #F59B7A;
+	background-color:ivory;
+}
+.container > li {
+    /* border:1px solid yellow; */
+    list-style:none;
+    font-size: 15px;
+}
+a {
+    text-decoration:none;
+    color:white;
+}
+.container{
+    border-radius: 9px;
+    background-color:#99CEB5;
+    margin-left: -1px;
+    margin-right:5px;
+    
+    display:flex;
+    height:20px;
+    justify-content: space-between;
+    padding:12px 15px;
+    position:static;
+    border:2px solid #ffe4db;   
+}
+.container>li:hover{
+    background-color: #F59B7A;
+    color: white;
+    border-radius: 4px;
+}
+section{
+    width:auto;
+}
+.box2{
+	border-radius: 9px;
+	background-color: white;
+	opacity:80%;
+	border:1px dotted #99CEB5;
+	position:absolute;
+	width: 868px;
+	height:380px;
+	top: 130px;
+	left:42px;
+	margin-top:1px; 
+	right:42px;
+	/* display:flex; */
+	padding:12px;
+	overflow: auto;
+}  
+.upload {
+	margin-left:760px;
+}
+.login{
+    width:50px;
+    margin-left:11px;
+	background-color:#F59B7A;
+	border: 1px solid ivory;
+	color:white;
+	padding-right:5px;
+	cursor:pointer;
+	left:240.5px;
+	bottom:53.5px;
+	right:40.5px;
+	margin-top:7px;
+	margin-left:11px;
+}
+.login{
+    width:52px;
+    height:25px;
+    margin-left:11px;
+}
+.login:hover{
+	    width:52px;
+    height:25px;
+    margin-left:11px;
+}
+
+/* input[type=button]{
+    background-color:#F59B7A;
+    border: 1px solid ivory;
+    
+    color:white;
+    padding-right:5px;
+    cursor:pointer;
+    left:240.5px;
+	bottom:53.5px;
+	right:40.5px;
+	margin-top:7px; 
+} */
+input[type=text]{
+    margin-bottom: 10px;
+    margin-top: 9px;
+    width:170px;
+    border:1px solid rgb(233, 233, 233);
+}
+
+/* .typo{
+	font-size:35px;
+	text-align:center;
+	font-family: 'Bangers', cursive;
+    margin-left: 250px;
+    margin-top:-3px;
+	color: #f1845c;
+	letter-spacing:3px;
+	text-shadow:3px 1px 0px #cae6d9;
+} */
+ul {
+	list-style: none;
+    margin-right: 1px;
+}
+div{
+    background-color: rgb(255, 255, 255);
+}
+ul #main{
+	display:flex;
+	flex-direction:column;
+	list-style: none;
+	line-height:1px;
+    width:51px;
+    height: 10px;
+    margin-left: 13px;
+    margin-right: 5px;
+    margin-top: 12px;
+}
+ul #main,ul .row,ul.row>li {
+	display: flex;
+	flex-direction:row;
+	text-align:center;
+	padding-top:3px;
+    margin-right: 11px;
+}
+.row{
+    margin-bottom: 15px;
+    margin-right: 10px;
+}
+.row > li{
+	padding: 3px 0px;
+	text-decoration:none;
+    margin-right: 25px;
+    margin-left: 20px;
+    margin-bottom:10px;
+    font-size: 12px;
+    width:100px;
+    height:8px;
+}
+.row > li:nth-child(1){
+	flex-basis:10%;
+	color:tomato;
+    margin-left: -20px;
+}	
+.row > li:nth-child(2){
+	flex-basis:35%;
+    margin-left: 90px;
+}
+.row > li:nth-child(3){
+	flex-basis:25%;
+}
+.row > li:nth-child(4){
+	flex-basis:10%;
+    margin-left: 15px;
+}
+.row > li:nth-child(5){
+	flex-basis:20%;
+    margin-left: 40px;
+}
+p{
+    margin-bottom:12px;
+}
+h4{
+    margin-top: -58px;
+    text-align: center;
+}
+/*  input[type=button] {
+    margin-left: 9px;
+    background: #F59B7A;
+    color:white;
+}  */
+input[type=button]:hover {
+    margin-left: 9px;
+    background: #99CEB5;
+    color:white;
+    
+}
+table{
+    width:100%;
+    height: 90%;
+    margin-top: 0px;
+    margin-left:2px;
+}
+th {
+	text-align: center;
+	background-color: rgb(236, 236, 236);
+	font-size:80%;
+	color: rgb(31, 30, 30);
+	width: 70px;
+    height:17px;
+	border-radius : 3px;
+}
+input,textarea{
+	padding: 6px;
+
+	border: 1px solid #e6e6e6;
+	box-sizing: border-box;
+    margin-left: 12px;
+	
+	color:#160001;
+}
+
+.btn1 {
+	width: 70px;
+	cursor : pointer;
+	background-color:#99CEB5;
+	color:white;
+}
+.btn2 {
+	width: 70px;
+	cursor : pointer;
+	background-color:#99CEB5;
+	color:white;
+}
+input[type=button]{ /*버튼들 전체*/
+	background-color:#F59B7A;
+	border: 1px solid ivory;
+	    margin-left:11px;
+	color:white;
+	padding-right:5px;
+	cursor:pointer;
+	left:240.5px;
+	bottom:53.5px;
+	right:40.5px;
+	margin-top:7px;
+}
+input[type=button]:hover{ /*버튼들 전체*/
+	background-color:#99CEB5;
+	border: 1px solid ivory;
+	    margin-left:11px;
+	color:white;
+	padding-right:5px;
+	cursor:pointer;
+	left:240.5px;
+	bottom:53.5px;
+	right:40.5px;
+	margin-top:7px;
+}
+.button small:hover{
+	background-color:#99CEB5;
+	border: 1px solid ivory;
+	    margin-left:11px;
+	color:white;
+	padding-right:5px;
+	cursor:pointer;
+	left:240.5px;
+	bottom:53.5px;
+	right:40.5px;
+	margin-top:7px;
+}
+
+.btn3 {
+	width: 70px;
+	cursor : pointer;
+	background-color:#99CEB5;
+	color:white;
+}
+body{
+	font-family: 'Nanum Gothic', sans-serif;
+}
+h3{
+	font-size:60px;
+	text-align:center;
+	font-family: 'Bangers', cursive;
+	color:tomato;
+	letter-spacing:3.5px;
+	text-shadow:5px 2px 0px #cae6d9;
+}
+input[type=submit]{
+    background-color: #F59B7A;
+    margin-top:4px;
+    color:white;
+         margin-left: 11px;
+}
+input[type=reset]{
+    background-color: #F59B7A;
+    color:white;
+         margin-left: 11px;
+}
+
+input[type=submit]:hover{
+    background-color: #99CEB5;
+     margin-left: 11px;
+}
+input[type=reset]:hover{
+    background-color: #99CEB5;
+     margin-left: 11px;
+}
+hr{
+    border: 1px dotted #F59B7A;
+    opacity:40%;
+}
+.main{
+    width: 80px;
+}
+.gugucomment{
+    margin-left: 5;
+}
+.row-2{
+    margin-left: -85px;
+}
+.writer{
+background-color:rgb(231, 231, 231);
+width:40%;
+border:2px dotted  #F59B7A;
+opacity:70%;
+margin-left:-20px;
+}
+/* .pagenum {
+    border: 1px solid #f5b49c;
+    padding: 3px 5px;
+    text-decoration: none;   밑줄제거 
+    cursor: pointer;
+    display: inline-block;
+    text-align:center;
+    font-size: 9pt;
+    border-radius: 2px;
+}
+.pagenum:hover{
+     background-color: #f5b49c;
+     color: purple;
+} 
+.current {
+	background-color: #f5b49c;
+	color: white;
+} */
+.welcome{
+
+font-size:25px;
+font-family: 'Nanum Pen Script', cursive;
+}
+.username{
+font-family: 'Nanum Pen Script', cursive;
+color:tomato;
+}
+.gohome {
+	color: black;
+}
+.gohome:hover {
+	color: tomato;
+}
+.dropdown-button{
+	background-color:#F59B7A;
+	border: 1px solid ivory;
+	height:35px;
+	color:white;
+		margin-top:7px;
+	
+}
+
+.dropdown-content{
+            display: none;
+            position:absolute;
+            background-color:#cbe7da;
+            min-width: 75px;
+            padding: 5px;
+            box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+        }
+        .dropdown-content a{
+            color: black;
+            padding: 8px;
+            text-decoration: none;
+            display: block;
+        }
+        .dropdown-content a:hover{
+            background-color: #F59B7A;
+            color:white;
+            opacity:70%;
+        }
+        .dropdown:hover .dropdown-content{
+            display: block;
+        }
+
+
